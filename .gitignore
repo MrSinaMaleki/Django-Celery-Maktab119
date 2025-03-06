@@ -207,3 +207,6 @@ entire idea folder.
 # PyPI configuration file
 .pypirc
 .DS_Store
+
+**/migrations/*.py
+!**/migrations/__init__.py
