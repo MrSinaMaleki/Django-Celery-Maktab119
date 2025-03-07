@@ -133,3 +133,6 @@ MAIL_PORT=config('MAIL_PORT', default='587')
 EMAIL_HOST_USER=config('EMAIL_HOST_USER', default="maktab119smtp@gmail.com")
 EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD', default="<PASSWORD>")
 
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
