@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'organizer',
 
 ]
 
@@ -136,3 +137,8 @@ EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD', default="<PASSWORD>")
 
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
+
+CELERY_TASK_ROUTES = {
+    'account.tasks.*':{'queue': "queue_app1"},
+    'organizer.tasks.*': {'queue': "queue_app2"}
+}
