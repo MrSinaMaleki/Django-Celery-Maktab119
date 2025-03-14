@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'account',
     'organizer',
 
+
+    #3rd party
+    "django_celery_beat",
+
 ]
 
 MIDDLEWARE = [
@@ -138,7 +142,18 @@ EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD', default="<PASSWORD>")
 CELERY_BROKER_URL = "redis://localhost:6379"
 CELERY_RESULT_BACKEND = "redis://localhost:6379"
 
-CELERY_TASK_ROUTES = {
-    'account.tasks.*':{'queue': "queue_app1"},
-    'organizer.tasks.*': {'queue': "queue_app2"}
+# CELERY_TASK_ROUTES = {
+#     'account.tasks.*':{'queue': "queue_app1"},
+#     'organizer.tasks.*': {'queue': "queue_app2"},
+# }
+
+
+CELERY_BEAT_SCHEDULE = {
+    'generate_user_report_every_n_seconds':
+        {
+            "task": "account.tasks.generate_user_report",
+            "schedule": 30
+
+        }
+
 }

@@ -3,10 +3,14 @@ from account.tasks import a_send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 import random
+
 # Create your views here.
 
 def email_send(request):
     html_content = render_to_string('email_template.html', {"code":random.randint(1000,9999)})
+
+    # init
+    # ins_name.method.delay()
 
     a_send_mail.delay(
         "title",
