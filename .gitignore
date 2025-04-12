@@ -210,3 +210,6 @@ entire idea folder.
 
 **/migrations/*.py
 !**/migrations/__init__.py
+
+dump.rdb
+celerybeat-schedule.db
