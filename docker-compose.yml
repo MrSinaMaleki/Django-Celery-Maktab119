@@ -1,0 +1,30 @@
+version: "3.9"
+
+
+services:
+  django:
+    build: .
+    container_name: django_celery
+    volumes: 
+      - .:/app
+    ports: 
+      - "8000:8000"
+    depends_on:
+      - redis
+  
+  celery: 
+    build: .
+    container_name: celery_worker
+    command: celery -A src worker --loglevel=info
+    volumes: 
+      - .:/app
+    depends_on:
+      - redis  
+
+
+  redis:
+    image: redis:alpine  
+    container_name: redis_broker
+    ports: 
+      - '6379:6379'
+    
