@@ -135,6 +135,12 @@ Redis isn’t officially supported on Windows, but you have two options:
    PONG
    ```
 
+
+
+# Advnaced Topics
+https://excalidraw.com/#json=HQ-pjkSC4Io9EktoVQ5GV,HzLJaonx6ZNpeWXBY-bXsA
+   
+
 ---
 
 
